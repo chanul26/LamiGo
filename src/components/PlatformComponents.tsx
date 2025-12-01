@@ -48,24 +48,22 @@ export default function PlatformComponents() {
   ];
 
   const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
-  const card = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+  const card = { 
+    hidden: { opacity: 0, y: 20, scale: 0.95 }, 
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1, 
+      transition: { duration: 0.55 } 
+    },
+    hover: { scale: 1.02, y: -6, transition: { duration: 0.3 } }
+  };
 
   return (
-    <section id="features" className="py-24 bg-gray-50">
+    <section id="features" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-            <Package className="w-4 h-4" />
-            <span>Platform Components</span>
-          </div>
-
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Three Powerful Interfaces,{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
-              One Ecosystem
-            </span>
-          </h2>
-
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Platform Components</h2>
           <p className="text-xl text-gray-600">
             Purpose-built tools for drivers, customers, and station managers
           </p>

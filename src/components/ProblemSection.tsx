@@ -56,51 +56,87 @@ export default function ProblemSection() {
   // motion variants
   const container = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.08 } },
+    show: { transition: { staggerChildren: 0.06 } },
   };
   const card = {
-    hidden: { opacity: 0, y: 18, scale: 0.995 },
-    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: [0.2, 0.8, 0.2, 1] } },
+    hidden: { opacity: 0, y: 24, scale: 0.9 },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1, 
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } 
+    },
+    hover: { scale: 1.05, y: -8, transition: { duration: 0.3 } }
   };
 
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6"
+          >
             <AlertCircle className="w-4 h-4" />
             <span>Industry Challenges</span>
-          </div>
+          </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+          >
             The Last-Mile Delivery{' '}
             <span className="text-orange-500">Crisis</span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-xl text-gray-600">
+          <motion.p 
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-gray-600"
+          >
             Sri Lanka's courier industry faces critical inefficiencies that impact both operations and customer satisfaction
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.18 }}
+          viewport={{ once: true, amount: 0.12 }}
         >
           {problems.map((problem, idx) => (
             <motion.div
               key={idx}
               variants={card}
-              className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200"
+              whileHover="hover"
+              className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <motion.div 
+                  className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <problem.icon className="w-6 h-6 text-blue-600" />
-              </div>
-                <div className="text-3xl font-bold text-orange-500 mb-2">
+              </motion.div>
+                <motion.div 
+                  className="text-3xl font-bold text-orange-500 mb-2"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
                 {problem.stat}
-              </div>
+              </motion.div>
 
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {problem.title}

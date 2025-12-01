@@ -1,91 +1,49 @@
-import { CheckCircle, TrendingDown, Heart, Settings, Navigation, TrendingUp, Shield } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function WhyCourierAI() {
-  const benefits = [
-    {
-      icon: TrendingDown,
-      title: 'Reduce Delays',
-      description: 'AI-optimized routes eliminate unnecessary wait times'
-    },
-    {
-      icon: TrendingDown,
-      title: 'Lower Costs',
-      description: 'Minimize fuel consumption and labour expenses'
-    },
-    {
-      icon: Heart,
-      title: 'Improve Satisfaction',
-      description: 'Keep customers informed with accurate ETAs'
-    },
-    {
-      icon: Settings,
-      title: 'Standardise Operations',
-      description: 'Consistent processes across all deliveries'
-    },
-    {
-      icon: Navigation,
-      title: 'Eliminate Manual Planning',
-      description: 'No more guesswork in route optimization'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Increase Success Rate',
-      description: 'Higher first-attempt delivery completion'
-    },
-    {
-      icon: Shield,
-      title: 'Driver Accountability',
-      description: 'Track performance and ensure reliability'
-    }
-  ];
-
-  const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
-  const card = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
   return (
     <section className="py-24 bg-orange-50 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white text-orange-600 rounded-full text-sm font-medium mb-6 shadow-sm">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center space-x-2 px-4 py-2 bg-white text-orange-600 rounded-full text-sm font-medium mb-6 shadow-sm"
+          >
             <CheckCircle className="w-4 h-4" />
-            <span>Why Choose CourierAI</span>
-          </div>
+            <span>Why Choose llamigo</span>
+          </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+          >
             Transform Your <span className="text-[#F49320]">Delivery Operations</span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-xl text-gray-600">
-            Join leading courier companies in Sri Lanka leveraging AI to revolutionize last-mile delivery
-          </p>
-        </div>
-
-        <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }}>
-          {benefits.map((benefit, idx) => (
-            <motion.div key={idx} variants={card} className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-200">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#F49320] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <benefit.icon className="w-6 h-6 text-white" />
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-gray-600"
+          >
+            Experience the power of AI-driven logistics that adapts to your business needs
+          </motion.p>
         </motion.div>
 
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-bold text-gray-900 mb-4">
                 Built for Sri Lankan Courier Companies
@@ -145,7 +103,6 @@ export default function WhyCourierAI() {
             </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 }
