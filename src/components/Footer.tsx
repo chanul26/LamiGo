@@ -32,7 +32,7 @@ export default function Footer() {
               <div className="w-10 h-10 bg-[#1965A5] rounded-lg flex items-center justify-center">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-white">CourierAI</span>
+              <span className="text-2xl font-bold text-white">llamgo</span>
             </div>
 
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -40,9 +40,9 @@ export default function Footer() {
             </p>
 
             <div className="space-y-3">
-              <a href="mailto:hello@courierai.lk" className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+              <a href="mailto:hello@llamigo.lk" className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
                 <Mail className="w-4 h-4" />
-                <span>hello@courierai.lk</span>
+                <span>hello@llamigo.lk</span>
               </a>
               <a href="tel:+94112345678" className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
                 <Phone className="w-4 h-4" />
@@ -94,7 +94,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © 2025 CourierAI. All rights reserved.
+              © 2025 llamgo. All rights reserved.
             </p>
 
             <div className="flex items-center space-x-6">

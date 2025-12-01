@@ -15,7 +15,7 @@ export default function Hero() {
             <div className="w-10 h-10 bg-[#1965A5] rounded-lg flex items-center justify-center">
               <MapPin className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-bold text-[#1965A5]">CourierAI</span>
+            <span className="text-2xl font-bold text-[#1965A5]">llamigo</span>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">

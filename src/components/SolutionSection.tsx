@@ -62,7 +62,7 @@ export default function SolutionSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Meet{' '}
             <span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
-              CourierAI
+              llamigo
             </span>
           </h2>
 
