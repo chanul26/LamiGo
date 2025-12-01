@@ -1,4 +1,5 @@
 import { Zap, Brain, Clock, MapPin, Shield, BarChart3, Bell, FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function SolutionSection() {
   const solutions = [
@@ -44,9 +45,12 @@ export default function SolutionSection() {
     }
   ];
 
+  const container = { hidden: {}, show: { transition: { staggerChildren: 0.09 } } };
+  const card = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+
   return (
     <section className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent"></div>
+      {/* no gradient overlay */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -67,13 +71,20 @@ export default function SolutionSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           {solutions.map((solution, idx) => (
-            <div
+            <motion.div
               key={idx}
+              variants={card}
               className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-200"
             >
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-orange-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 bg-[#1965A5] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <solution.icon className="w-6 h-6 text-white" />
               </div>
 
@@ -84,11 +95,11 @@ export default function SolutionSection() {
               <p className="text-gray-600 text-sm leading-relaxed">
                 {solution.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="bg-gradient-to-br from-blue-600 to-blue-900 rounded-2xl p-8 md:p-12 text-white">
+        <div className="bg-[#1965A5] rounded-2xl p-8 md:p-12 text-white">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold mb-2">85%</div>

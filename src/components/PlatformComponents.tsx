@@ -1,11 +1,12 @@
 import { Smartphone, Globe, Building2, Navigation, Phone, FileText, AlertCircle, MapPin, Clock, Users, DollarSign, Package } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function PlatformComponents() {
   const components = [
     {
       icon: Smartphone,
       title: 'Driver Mobile App',
-      color: 'from-blue-600 to-blue-800',
+      color: 'bg-[#1965A5]',
       features: [
         { icon: Navigation, text: 'Optimally sorted delivery sequence' },
         { icon: MapPin, text: 'Open route in Google Maps' },
@@ -20,7 +21,7 @@ export default function PlatformComponents() {
     {
       icon: Globe,
       title: 'Customer Web Interface',
-      color: 'from-orange-500 to-orange-700',
+      color: 'bg-[#F49320]',
       features: [
         { icon: Clock, text: 'View accurate ETA' },
         { icon: FileText, text: 'Add delivery instructions' },
@@ -33,7 +34,7 @@ export default function PlatformComponents() {
     {
       icon: Building2,
       title: 'Station Management System',
-      color: 'from-gray-800 to-gray-900',
+      color: 'bg-black',
       features: [
         { icon: Package, text: 'View all packages & delivery batches' },
         { icon: Users, text: 'Assign drivers' },
@@ -45,6 +46,9 @@ export default function PlatformComponents() {
       ]
     }
   ];
+
+  const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
+  const card = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
   return (
     <section id="features" className="py-24 bg-gray-50">
@@ -67,13 +71,10 @@ export default function PlatformComponents() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <motion.div className="grid lg:grid-cols-3 gap-8" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.16 }}>
           {components.map((component, idx) => (
-            <div
-              key={idx}
-              className="group bg-white rounded-2xl border border-gray-200 hover:shadow-2xl transition-all duration-300 overflow-hidden"
-            >
-              <div className={`bg-gradient-to-r ${component.color} p-8 text-white`}>
+            <motion.div key={idx} variants={card} className="group bg-white rounded-2xl border border-gray-200 hover:shadow-2xl transition-all duration-300 overflow-hidden">
+              <div className={`${component.color} p-8 text-white`}>
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <component.icon className="w-8 h-8" />
                 </div>
@@ -98,9 +99,9 @@ export default function PlatformComponents() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

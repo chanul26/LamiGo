@@ -1,4 +1,5 @@
 import { AlertCircle, TrendingDown, MapPin, Clock, MessageSquare, Fuel, Users, XCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function ProblemSection() {
   const problems = [
@@ -52,6 +53,16 @@ export default function ProblemSection() {
     }
   ];
 
+  // motion variants
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08 } },
+  };
+  const card = {
+    hidden: { opacity: 0, y: 18, scale: 0.995 },
+    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: [0.2, 0.8, 0.2, 1] } },
+  };
+
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
@@ -71,10 +82,17 @@ export default function ProblemSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.18 }}
+        >
           {problems.map((problem, idx) => (
-            <div
+            <motion.div
               key={idx}
+              variants={card}
               className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200"
             >
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -91,9 +109,9 @@ export default function ProblemSection() {
               <p className="text-gray-600 text-sm leading-relaxed">
                 {problem.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

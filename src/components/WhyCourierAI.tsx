@@ -1,4 +1,5 @@
 import { CheckCircle, TrendingDown, Heart, Settings, Navigation, TrendingUp, Shield } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function WhyCourierAI() {
   const benefits = [
@@ -39,8 +40,11 @@ export default function WhyCourierAI() {
     }
   ];
 
+  const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
+  const card = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+
   return (
-    <section className="py-24 bg-gradient-to-br from-orange-50 via-orange-50 to-orange-50 relative overflow-hidden">
+    <section className="py-24 bg-orange-50 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -51,10 +55,7 @@ export default function WhyCourierAI() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Transform Your{' '}
-            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent">
-              Delivery Operations
-            </span>
+            Transform Your <span className="text-[#F49320]">Delivery Operations</span>
           </h2>
 
           <p className="text-xl text-gray-600">
@@ -62,14 +63,11 @@ export default function WhyCourierAI() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }}>
           {benefits.map((benefit, idx) => (
-            <div
-              key={idx}
-              className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-200"
-            >
+            <motion.div key={idx} variants={card} className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-200">
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="flex-shrink-0 w-12 h-12 bg-[#F49320] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                   <benefit.icon className="w-6 h-6 text-white" />
                 </div>
 
@@ -82,9 +80,9 @@ export default function WhyCourierAI() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -111,7 +109,7 @@ export default function WhyCourierAI() {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-8 text-white">
+            <motion.div className="bg-[#1965A5] rounded-xl p-8 text-white" initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <h4 className="text-2xl font-bold mb-6">Impact Metrics</h4>
               <div className="space-y-6">
                 <div>
@@ -120,7 +118,7 @@ export default function WhyCourierAI() {
                     <span className="text-2xl font-bold">25-35%</span>
                   </div>
                   <div className="w-full bg-white/20 rounded-full h-2">
-                    <div className="bg-white h-2 rounded-full" style={{ width: '75%' }}></div>
+                    <motion.div className="bg-white h-2 rounded-full" initial={{ width: 0 }} whileInView={{ width: '75%' }} transition={{ duration: 0.9 }} viewport={{ once: true }} />
                   </div>
                 </div>
 
@@ -130,7 +128,7 @@ export default function WhyCourierAI() {
                     <span className="text-2xl font-bold">40%</span>
                   </div>
                   <div className="w-full bg-white/20 rounded-full h-2">
-                    <div className="bg-white h-2 rounded-full" style={{ width: '80%' }}></div>
+                    <motion.div className="bg-white h-2 rounded-full" initial={{ width: 0 }} whileInView={{ width: '80%' }} transition={{ duration: 0.9, delay: 0.12 }} viewport={{ once: true }} />
                   </div>
                 </div>
 
@@ -140,11 +138,11 @@ export default function WhyCourierAI() {
                     <span className="text-2xl font-bold">95%</span>
                   </div>
                   <div className="w-full bg-white/20 rounded-full h-2">
-                    <div className="bg-white h-2 rounded-full" style={{ width: '95%' }}></div>
+                    <motion.div className="bg-white h-2 rounded-full" initial={{ width: 0 }} whileInView={{ width: '95%' }} transition={{ duration: 0.9, delay: 0.22 }} viewport={{ once: true }} />
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

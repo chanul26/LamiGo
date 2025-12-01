@@ -1,4 +1,5 @@
 import { MapPin, Mail, Phone, Linkedin, Twitter } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   const footerLinks = {
@@ -23,17 +24,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <motion.footer className="bg-gray-900 text-gray-300" initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-orange-500 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#1965A5] rounded-lg flex items-center justify-center">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-white">
-                CourierAI
-              </span>
+              <span className="text-2xl font-bold text-white">CourierAI</span>
             </div>
 
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -99,16 +98,16 @@ export default function Footer() {
             </p>
 
             <div className="flex items-center space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <motion.a href="#" className="text-gray-400 hover:text-white transition-colors" whileHover={{ scale: 1.06 }}>
                 <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              </motion.a>
+              <motion.a href="#" className="text-gray-400 hover:text-white transition-colors" whileHover={{ scale: 1.06 }}>
                 <Linkedin className="w-5 h-5" />
-              </a>
+              </motion.a>
             </div>
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
