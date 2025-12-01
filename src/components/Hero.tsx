@@ -237,7 +237,10 @@ export default function Hero() {
             <div className="w-10 h-10 bg-[#1965A5] rounded-lg flex items-center justify-center">
               <MapPin className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-bold text-[#1965A5]">llamigo</span>
+            <span className="text-2xl font-bold font-montserrat">
+            <span className="text-blue-900">Lami</span>
+            <span className="text-orange-500">Go</span>
+          </span>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -253,6 +256,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-32">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
           <div className="space-y-8">
             <div
               className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-50 border border-blue-200 text-blue-700 rounded-full text-sm font-medium"
@@ -327,6 +331,7 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Right Content - Metrics Card */}
           <div
             className="relative"
             style={{
