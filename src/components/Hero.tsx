@@ -1,5 +1,6 @@
 import { ArrowRight, Play, MapPin, Clock, TrendingUp, CheckCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -7,6 +8,56 @@ export default function Hero() {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  // Headline words with animation directions
+  const headlineWords = [
+    { text: 'AI-Powered', direction: 'top' },
+    { text: 'Last-Mile', direction: 'left' },
+    { text: 'Delivery', direction: 'bottom' },
+    { text: 'Optimisation', direction: 'right', isHighlight: true },
+  ];
+
+  // Animation variants for each direction
+  const getVariant = (direction: string) => {
+    const baseVariant = {
+      hidden: { opacity: 0, filter: 'blur(8px)' },
+      show: {
+        opacity: 1,
+        filter: 'blur(0px)',
+        transition: {
+          duration: 0.8,
+          ease: [0.34, 1.56, 0.64, 1], // smooth elastic easing
+        },
+      },
+    };
+
+    const directionOffsets: Record<string, { y: number[]; x: number[] }> = {
+      top: { y: [-60, 0], x: [0, 0] },
+      bottom: { y: [60, 0], x: [0, 0] },
+      left: { y: [0, 0], x: [-60, 0] },
+      right: { y: [0, 0], x: [60, 0] },
+    };
+
+    const offset = directionOffsets[direction];
+    return {
+      hidden: {
+        opacity: 0,
+        y: offset.y[0],
+        x: offset.x[0],
+        filter: 'blur(10px)',
+      },
+      show: {
+        opacity: 1,
+        y: offset.y[1],
+        x: offset.x[1],
+        filter: 'blur(0px)',
+        transition: {
+          duration: 0.9,
+          ease: [0.25, 0.46, 0.45, 0.94],
+        },
+      },
+    };
+  };
 
   return (
     <div className="relative overflow-hidden bg-white">
@@ -42,48 +93,63 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto">
           {/* Centered Content */}
           <div className="text-center space-y-8">
-            <div
+            <motion.div
               className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-50 border border-blue-200 text-blue-700 rounded-full text-sm font-medium"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: 'all 0.6s ease-out'
-              }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
             >
               <TrendingUp className="w-4 h-4" />
               <span>AI-Powered Logistics Platform</span>
+            </motion.div>
+
+            {/* Animated Headline with words coming from different directions */}
+            <div className="overflow-hidden">
+              <motion.div
+                className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight"
+                initial="hidden"
+                animate={isVisible ? 'show' : 'hidden'}
+                variants={{
+                  hidden: {},
+                  show: {
+                    transition: {
+                      staggerChildren: 0.12,
+                      delayChildren: 0.2,
+                    },
+                  },
+                }}
+              >
+                {headlineWords.map((word, idx) => (
+                  <motion.span
+                    key={idx}
+                    variants={getVariant(word.direction)}
+                    className="inline-block"
+                    style={{
+                      marginRight: idx < headlineWords.length - 1 ? '0.3em' : 0,
+                    }}
+                  >
+                    <span className={word.isHighlight ? 'text-[#1965A5]' : ''}>
+                      {word.text}
+                    </span>
+                  </motion.span>
+                ))}
+              </motion.div>
             </div>
 
-            <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: 'all 0.7s ease-out 0.1s'
-              }}
-            >
-              AI-Powered Last-Mile Delivery{' '}
-              <span className="text-[#1965A5]">Optimisation</span>
-            </h1>
-
-            <p
+            <motion.p
               className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: 'all 0.8s ease-out 0.2s'
-              }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
               Accurate ETAs, optimized delivery routes, real-time tracking, and seamless customer communication — all in one intelligent platform.
-            </p>
+            </motion.p>
 
-            <div
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: 'all 0.9s ease-out 0.3s'
-              }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
               <button className="group px-8 py-4 bg-[#1965A5] text-white rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-200 font-semibold flex items-center justify-center space-x-2">
                 <span>Get Started</span>
@@ -94,15 +160,13 @@ export default function Hero() {
                 <Play className="w-5 h-5" />
                 <span>Watch Demo</span>
               </button>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
               className="flex items-center justify-center space-x-8 pt-8"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: 'all 1s ease-out 0.4s'
-              }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 1 }}
             >
               <div className="flex items-center space-x-2">
                 <Clock className="w-5 h-5 text-[#1965A5]" />
@@ -112,17 +176,15 @@ export default function Hero() {
                 <MapPin className="w-5 h-5 text-[#1965A5]" />
                 <span className="text-sm text-gray-600">Real-Time Tracking</span>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Metrics Card Below */}
-          <div
+          <motion.div
             className="mt-16"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
-              transition: 'all 0.9s ease-out 0.5s'
-            }}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="bg-white border-2 border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="space-y-6">
@@ -180,7 +242,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -198,17 +260,15 @@ function MetricCard({ label, value, change, changeColor, delay, isVisible }: {
   isVisible: boolean;
 }) {
   return (
-    <div
+    <motion.div
       className="p-5 bg-gray-50 rounded-lg border border-gray-200 hover:border-[#1965A5] transition-all duration-300"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(15px)',
-        transition: `all 0.6s ease-out ${delay}s`
-      }}
+      initial={{ opacity: 0, y: 12 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay }}
     >
       <p className="text-sm font-medium text-gray-500 mb-1">{label}</p>
       <p className="text-3xl font-bold text-gray-900">{value}</p>
       <p className={`text-xs ${changeColor} mt-1`}>{change}</p>
-    </div>
+    </motion.div>
   );
 }
