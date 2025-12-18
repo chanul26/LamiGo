@@ -46,20 +46,20 @@ export default function Features() {
     }
   ];
 
-  const container = { hidden: {}, show: { transition: { staggerChildren: 0.05 } } };
-  const card = { 
-    hidden: { opacity: 0, y: 20, scale: 0.9 }, 
-    show: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1, 
-      transition: { duration: 0.55 } 
+  const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
+  const card = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     },
-    hover: { scale: 1.04, y: -8, transition: { duration: 0.3 } }
+    hover: { scale: 1.02, y: -4, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } }
   };
-  const listItem = { 
-    hidden: { opacity: 0, x: -8 }, 
-    show: { opacity: 1, x: 0, transition: { duration: 0.4 } } 
+  const listItem = {
+    hidden: { opacity: 0, x: -12 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
   };
 
   return (
@@ -69,25 +69,25 @@ export default function Features() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-orange-100 text-blue-700 rounded-full text-sm font-medium mb-6"
           >
             <Zap className="w-4 h-4" />
             <span>Feature Highlights</span>
           </motion.div>
 
-          <motion.h2 
-            initial={{ opacity: 0, y: 8 }}
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Everything You Need to{' '}
@@ -96,33 +96,39 @@ export default function Features() {
             </span>
           </motion.h2>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 8 }}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-xl text-gray-600"
           >
             Comprehensive features designed to streamline every aspect of your delivery operations
           </motion.p>
         </motion.div>
 
-        <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" 
-          variants={container} 
-          initial="hidden" 
-          whileInView="show" 
-          viewport={{ once: true, amount: 0.12 }}
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
         >
           {featureCategories.map((category, idx) => (
-            <motion.div 
-              key={idx} 
+            <motion.div
+              key={idx}
               variants={card}
               whileHover="hover"
               className="group relative"
             >
               <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300 blur-xl"></div>
 
-              <div className="relative p-8 bg-white rounded-2xl border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300">
+              <motion.div
+                className="relative p-8 bg-white rounded-2xl border border-gray-200 hover:border-gray-300 transition-all duration-300"
+                whileHover={{
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+                  transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
+                }}
+              >
                 <div className={`w-12 h-12 ${category.color} rounded-lg flex items-center justify-center mb-6`}>
                   <category.icon className="w-6 h-6 text-white" />
                 </div>
@@ -143,7 +149,7 @@ export default function Features() {
                     </motion.li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>

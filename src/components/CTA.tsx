@@ -7,8 +7,9 @@ export default function CTA() {
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="relative bg-[#1965A5] rounded-3xl overflow-hidden"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
         >
           <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
@@ -17,9 +18,9 @@ export default function CTA() {
 
           <div className="relative z-10 px-8 md:px-16 py-16 md:py-24 text-center">
             <motion.h2
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1.0, ease: [0.86, 0, 0.07, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             >
               Transform Your Delivery Operations{' '}
@@ -27,9 +28,9 @@ export default function CTA() {
             </motion.h2>
 
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.08 }}
+              transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto"
             >
               Join forward-thinking courier companies in Sri Lanka that are
@@ -38,19 +39,41 @@ export default function CTA() {
 
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.12 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <button className="group px-8 py-4 bg-white text-blue-600 rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-200 font-semibold flex items-center space-x-2">
+              <motion.button
+                className="group px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold flex items-center space-x-2"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 25px 50px rgba(255, 255, 255, 0.3)",
+                  transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <span>Request Early Access</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+                <motion.div
+                  className="w-5 h-5"
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ArrowRight />
+                </motion.div>
+              </motion.button>
 
-              <button className="group px-8 py-4 bg-orange-500 hover:bg-orange-600 border-2 border-orange-500 text-white rounded-lg transition-all duration-200 font-semibold flex items-center space-x-2">
+              <motion.button
+                className="group px-8 py-4 bg-orange-500 hover:bg-orange-600 border-2 border-orange-500 text-white rounded-lg font-semibold flex items-center space-x-2"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(249, 115, 32, 0.4)",
+                  transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <Mail className="w-5 h-5" />
                 <span>Contact Sales</span>
-              </button>
+              </motion.button>
             </motion.div>
 
             <div className="mt-12 flex flex-wrap justify-center gap-8 text-white/90">

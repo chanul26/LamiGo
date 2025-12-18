@@ -47,16 +47,16 @@ export default function PlatformComponents() {
     }
   ];
 
-  const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
-  const card = { 
-    hidden: { opacity: 0, y: 20, scale: 0.95 }, 
-    show: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1, 
-      transition: { duration: 0.55 } 
+  const container = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
+  const card = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     },
-    hover: { scale: 1.02, y: -6, transition: { duration: 0.3 } }
+    hover: { scale: 1.02, y: -4, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } }
   };
 
   return (

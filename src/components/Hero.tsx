@@ -1,6 +1,14 @@
-import { ArrowRight, Play, MapPin, Clock, TrendingUp, CheckCircle } from 'lucide-react';
+import { ArrowRight, Play, MapPin, Clock, CheckCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import logo from '../assets/logo1.png';
+
+type HeadlineWord = {
+  text: string;
+  direction: 'top' | 'bottom' | 'left' | 'right';
+  isOrange?: boolean;
+  isBlue?: boolean;
+};
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,28 +18,16 @@ export default function Hero() {
   }, []);
 
   // Headline words with animation directions
-  const headlineWords = [
-    { text: 'AI-Powered', direction: 'top' },
-    { text: 'Last-Mile', direction: 'left' },
-    { text: 'Delivery', direction: 'bottom' },
-    { text: 'Optimisation', direction: 'right', isHighlight: true },
+  const headlineWords: HeadlineWord[] = [
+    { text: 'Last-Mile', direction: 'top', isOrange: true },
+    { text: 'Delivery', direction: 'left' },
+    { text: 'Optimisation', direction: 'bottom' },
+    { text: 'Platform', direction: 'right', isBlue: true },
   ];
 
   // Animation variants for each direction
-  const getVariant = (direction: string) => {
-    const baseVariant = {
-      hidden: { opacity: 0, filter: 'blur(8px)' },
-      show: {
-        opacity: 1,
-        filter: 'blur(0px)',
-        transition: {
-          duration: 0.8,
-          ease: [0.34, 1.56, 0.64, 1], // smooth elastic easing
-        },
-      },
-    };
-
-    const directionOffsets: Record<string, { y: number[]; x: number[] }> = {
+  const getVariant = (direction: 'top' | 'bottom' | 'left' | 'right') => {
+    const directionOffsets = {
       top: { y: [-60, 0], x: [0, 0] },
       bottom: { y: [60, 0], x: [0, 0] },
       left: { y: [0, 0], x: [-60, 0] },
@@ -68,14 +64,8 @@ export default function Hero() {
 
       <nav className="relative z-10 max-w-7xl mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-[#1965A5] rounded-lg flex items-center justify-center">
-              <MapPin className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-2xl font-bold font-montserrat">
-            <span className="text-blue-900">Lami</span>
-            <span className="text-orange-500">Go</span>
-          </span>
+          <div className="flex items-center space-x-3">
+            <img src={logo} alt="Lamigo Logo" className="h-20 w-auto" />
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -93,16 +83,6 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto">
           {/* Centered Content */}
           <div className="text-center space-y-8">
-            <motion.div
-              className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-50 border border-blue-200 text-blue-700 rounded-full text-sm font-medium"
-              initial={{ opacity: 0, y: 12 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-            >
-              <TrendingUp className="w-4 h-4" />
-              <span>AI-Powered Logistics Platform</span>
-            </motion.div>
-
             {/* Animated Headline with words coming from different directions */}
             <div className="overflow-hidden">
               <motion.div
@@ -128,7 +108,7 @@ export default function Hero() {
                       marginRight: idx < headlineWords.length - 1 ? '0.3em' : 0,
                     }}
                   >
-                    <span className={word.isHighlight ? 'text-[#1965A5]' : ''}>
+                    <span className={word.isOrange ? 'text-orange-500' : word.isBlue ? 'text-[#1965A5]' : ''}>
                       {word.text}
                     </span>
                   </motion.span>
@@ -251,14 +231,16 @@ export default function Hero() {
   );
 }
 
-function MetricCard({ label, value, change, changeColor, delay, isVisible }: {
+interface MetricCardProps {
   label: string;
   value: string;
   change: string;
   changeColor: string;
   delay: number;
   isVisible: boolean;
-}) {
+}
+
+function MetricCard({ label, value, change, changeColor, delay, isVisible }: MetricCardProps) {
   return (
     <motion.div
       className="p-5 bg-gray-50 rounded-lg border border-gray-200 hover:border-[#1965A5] transition-all duration-300"
