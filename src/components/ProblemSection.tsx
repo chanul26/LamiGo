@@ -94,8 +94,7 @@ export default function ProblemSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
-            The Last-Mile Delivery{' '}
-            <span className="text-orange-500">Crisis</span>
+            The Last-Mile Delivery Crisis{' '}
           </motion.h2>
 
           <motion.p

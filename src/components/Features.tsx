@@ -78,7 +78,7 @@ export default function Features() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-orange-100 text-blue-700 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center space-x-2 px-4 py-2 bg-gray-200 text-orange-600 rounded-full text-sm font-medium mb-6"
           >
             <Zap className="w-4 h-4" />
             <span>Feature Highlights</span>
@@ -91,7 +91,7 @@ export default function Features() {
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Everything You Need to{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
+            <span className="ext-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Succeed
             </span>
           </motion.h2>
