@@ -6,7 +6,7 @@ export default function CTA() {
     <section id="contact" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="relative bg-[#1965A5] rounded-3xl overflow-hidden"
+          className="relative bg-gray-400 rounded-3xl overflow-hidden"
           initial={{ opacity: 0, y: 30, scale: 0.98 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
