@@ -21,7 +21,7 @@ export default function WhyCourierAI() {
             className="inline-flex items-center space-x-2 px-4 py-2 bg-white text-orange-600 rounded-full text-sm font-medium mb-6 shadow-sm"
           >
             <CheckCircle className="w-4 h-4" />
-            <span>Why Choose llamigo</span>
+            <span>Why Choose LamiGo</span>
           </motion.div>
 
           <motion.h2
@@ -30,7 +30,7 @@ export default function WhyCourierAI() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
-            Transform Your <span className="text-[#F49320]">Delivery Operations</span>
+            Transform Your <span className="text-orange-500">Delivery Operations</span>
           </motion.h2>
 
           <motion.p

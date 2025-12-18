@@ -85,8 +85,11 @@ export default function SolutionSection() {
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Meet{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
-              llamigo
+            <span className="bg-blue-800 bg-clip-text text-transparent">
+              Lami
+            </span>
+            <span className="bg-orange-500 bg-clip-text text-transparent">
+              Go
             </span>
           </motion.h2>
 
@@ -112,7 +115,7 @@ export default function SolutionSection() {
               key={idx}
               variants={card}
               whileHover="hover"
-              className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300"
+              className="group p-6 bg-white rounded-xl border border-orange-400 hover:border-blue-300 hover:shadow-xl transition-all duration-300"
             >
                 <motion.div 
                   className="w-12 h-12 bg-[#1965A5] rounded-lg flex items-center justify-center mb-4"
