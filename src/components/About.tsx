@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Linkedin, Github, Truck, Brain, Users, BarChart3, ArrowLeft } from 'lucide-react';
+import { Linkedin, Github, Truck, Brain, Users, BarChart3, ArrowLeft, Zap, Target, Boxes } from 'lucide-react';
+import logo from '../assets/logo1.png';
 
 const AboutPage = () => {
   const teamMembers = [
@@ -55,129 +56,170 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden">
-      {/* Grid Background */}
-      <div className="absolute inset-0" style={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)',
-        backgroundSize: '50px 50px'
-      }}></div>
-
-      {/* Navigation Header */}
-      <nav className="relative z-10 bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <Link to="/" className="inline-flex items-center text-gray-600 hover:text-[#1965A5] transition-colors font-medium">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Home
+    <div className="relative min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="relative z-10 max-w-7xl mx-auto px-6 py-6 border-b-2 border-black">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center space-x-2 group">
+            <ArrowLeft className="w-5 h-5 text-black group-hover:text-[#1965A5] transition-colors" />
+            <img src={logo} alt="Lamigo Logo" className="h-16 w-auto" />
           </Link>
+          <div className="flex items-center space-x-6">
+            <Link to="/#features" className="text-black hover:text-[#1965A5] font-medium transition-colors">Features</Link>
+            <Link to="/about" className="text-[#F49320] font-bold">About</Link>
+            <Link to="/#contact" className="text-black hover:text-[#1965A5] font-medium transition-colors">Contact</Link>
+          </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <div className="relative z-10 bg-white text-gray-900 py-20 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-6">
-            About <span className="text-[#F49320]">Lami</span><span className="text-[#1965A5]">Go</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl">
-            A comprehensive Software-as-a-Service (SaaS) platform designed to bridge the critical "last-mile" gap in urban logistics.
-          </p>
+      {/* Hero Section with Asymmetric Design */}
+      <div className="relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#F49320]"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
+          <div className="flex items-center gap-16">
+            <div className="flex-1">
+              <div className="inline-block bg-black text-white px-4 py-2 mb-6 font-bold tracking-wider text-sm">
+                WHO WE ARE
+              </div>
+              <h1 className="text-6xl font-black mb-6 leading-tight">
+                About<br/>
+                <span className="text-[#F49320]">Lami</span><span className="text-[#1965A5]">Go</span>
+              </h1>
+              <div className="w-20 h-1 bg-[#1965A5] mb-6"></div>
+              <p className="text-xl text-gray-800 leading-relaxed max-w-2xl font-medium">
+                Bridging the critical "last-mile" gap in urban logistics through intelligent software solutions.
+              </p>
+            </div>
+            <div className="flex-1 relative">
+              <div className="absolute -right-12 top-0 w-96 h-96 bg-white border-4 border-black transform rotate-6"></div>
+              <div className="relative bg-[#1965A5] p-12 text-white border-4 border-black">
+                <p className="text-lg leading-relaxed font-medium">
+                  Born from Sri Lanka's need to modernize manual delivery processes, we replace guesswork with data-driven precision.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-16">
-        {/* Introduction */}
-        <div className="mb-16">
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Born out of the necessity to modernize traditional, manual delivery processes in Sri Lanka, our platform replaces guesswork with data-driven precision.
-          </p>
-        </div>
-
-        {/* Mission Section */}
-        <div className="mb-16 bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-200">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-blue-50 p-3 rounded-lg">
-              <Users className="w-6 h-6 text-[#1965A5]" />
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900">Our Mission</h2>
+      {/* Mission Section - Bold Cards */}
+      <div className="max-w-7xl mx-auto px-6 py-24">
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Mission */}
+          <div className="border-4 border-black bg-white p-8 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-[#1965A5]"></div>
+            <Target className="w-12 h-12 text-[#1965A5] mb-4" />
+            <h3 className="text-2xl font-black mb-4 uppercase">Mission</h3>
+            <p className="text-gray-800 leading-relaxed">
+              Empower SMEs with intelligent, affordable tools that reduce costs and enhance customer trust through workflow automation.
+            </p>
           </div>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            We aim to empower small and medium-sized enterprises (SMEs) with intelligent, affordable tools that reduce operational costs and enhance customer trust. By automating complex workflows, we enable logistics providers to focus on what matters most: delivering excellence.
-          </p>
-        </div>
 
-        {/* Technical Innovation */}
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="bg-orange-50 p-3 rounded-lg">
-              <Brain className="w-6 h-6 text-[#F49320]" />
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900">Technical Innovation</h2>
+          {/* Vision */}
+          <div className="border-4 border-black bg-[#F49320] p-8 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-black"></div>
+            <Zap className="w-12 h-12 text-white mb-4" />
+            <h3 className="text-2xl font-black mb-4 uppercase text-white">Innovation</h3>
+            <p className="text-white leading-relaxed font-medium">
+              Dual-engine architecture combining route optimization algorithms with AI-powered ETA predictions.
+            </p>
           </div>
-          <p className="text-gray-700 text-lg leading-relaxed mb-8">
-            At the heart of LamiGo is a dual-engine architecture designed for maximum efficiency:
-          </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border-2 border-[#1965A5] hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-[#1965A5] mb-3">Dynamic Route Optimization</h3>
-              <p className="text-gray-700">
-                Utilizing Simulated Annealing (SA) algorithms to generate the most fuel-efficient delivery sequences, minimizing travel distance and time wastage.
+          {/* Values */}
+          <div className="border-4 border-black bg-white p-8 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-[#F49320]"></div>
+            <Boxes className="w-12 h-12 text-[#F49320] mb-4" />
+            <h3 className="text-2xl font-black mb-4 uppercase">Platform</h3>
+            <p className="text-gray-800 leading-relaxed">
+              Unified ecosystem connecting drivers, managers, and customers through seamless integration.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Technical Innovation - Split Layout */}
+      <div className="bg-black text-white py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-black mb-4 uppercase">
+            Technical <span className="text-[#F49320]">Core</span>
+          </h2>
+          <div className="w-32 h-2 bg-[#1965A5] mb-12"></div>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Route Optimization */}
+            <div className="border-4 border-[#1965A5] p-8 bg-white text-black">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-[#1965A5] flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-black text-2xl">01</span>
+                </div>
+                <h3 className="text-2xl font-black uppercase pt-2">Dynamic Route Optimization</h3>
+              </div>
+              <p className="text-gray-800 leading-relaxed font-medium">
+                Simulated Annealing (SA) algorithms generate fuel-efficient delivery sequences, minimizing travel distance and time wastage across entire fleets.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border-2 border-[#F49320] hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-[#F49320] mb-3">Context-Aware ETA Prediction</h3>
-              <p className="text-gray-700">
-                Our platform goes beyond standard map data by using a Deep Factorization Machine (DeepFM) model. This AI component accounts for "human friction" like gate access delays, weather intensity, and driver behavior to provide minute-accurate arrival windows.
+            {/* ETA Prediction */}
+            <div className="border-4 border-[#F49320] p-8 bg-white text-black">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-[#F49320] flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-black text-2xl">02</span>
+                </div>
+                <h3 className="text-2xl font-black uppercase pt-2">Context-Aware ETA</h3>
+              </div>
+              <p className="text-gray-800 leading-relaxed font-medium">
+                Deep Factorization Machine (DeepFM) model accounts for human friction—gate delays, weather, driver behavior—delivering minute-accurate windows.
               </p>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Unified Ecosystem */}
-        <div className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="bg-blue-50 p-3 rounded-lg">
-              <BarChart3 className="w-6 h-6 text-[#1965A5]" />
+      {/* Ecosystem Components - Grid Layout */}
+      <div className="max-w-7xl mx-auto px-6 py-24">
+        <h2 className="text-5xl font-black mb-4 uppercase text-center">
+          Our <span className="text-[#1965A5]">Ecosystem</span>
+        </h2>
+        <div className="w-32 h-2 bg-[#F49320] mb-16 mx-auto"></div>
+
+        <div className="grid md:grid-cols-3 gap-px bg-black border-4 border-black">
+          {/* Driver App */}
+          <div className="bg-white p-10">
+            <div className="w-16 h-16 bg-[#1965A5] flex items-center justify-center mb-6">
+              <Truck className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900">A Unified Ecosystem</h2>
+            <h3 className="text-xl font-black mb-3 uppercase">Driver Mobile App</h3>
+            <p className="text-gray-700 font-medium">Real-time navigation and status management at drivers' fingertips.</p>
           </div>
-          <p className="text-gray-700 text-lg leading-relaxed mb-8">
-            We provide a seamless experience for all stakeholders through three integrated components:
-          </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-xl p-6 shadow-md border-2 border-gray-200 hover:border-[#1965A5] hover:shadow-xl transition-all">
-              <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <Truck className="w-6 h-6 text-[#1965A5]" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Driver Mobile App</h3>
-              <p className="text-gray-600">For real-time navigation and status management.</p>
+          {/* Station Management */}
+          <div className="bg-[#1965A5] p-10 text-white">
+            <div className="w-16 h-16 bg-white flex items-center justify-center mb-6">
+              <BarChart3 className="w-8 h-8 text-[#1965A5]" />
             </div>
+            <h3 className="text-xl font-black mb-3 uppercase">Station Control Tower</h3>
+            <p className="font-medium">Central hub for branch managers to monitor fleets and handle exceptions.</p>
+          </div>
 
-            <div className="bg-white rounded-xl p-6 shadow-md border-2 border-gray-200 hover:border-[#1965A5] hover:shadow-xl transition-all">
-              <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <BarChart3 className="w-6 h-6 text-[#1965A5]" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Station Management System</h3>
-              <p className="text-gray-600">A central "Control Tower" for branch managers to monitor fleets and handle exceptions.</p>
+          {/* Customer Portal */}
+          <div className="bg-white p-10">
+            <div className="w-16 h-16 bg-[#F49320] flex items-center justify-center mb-6">
+              <Users className="w-8 h-8 text-white" />
             </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-md border-2 border-gray-200 hover:border-[#F49320] hover:shadow-xl transition-all">
-              <div className="bg-orange-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-[#F49320]" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Customer Tracking Portal</h3>
-              <p className="text-gray-600">Giving receivers transparency and the ability to pin precise delivery locations.</p>
-            </div>
+            <h3 className="text-xl font-black mb-3 uppercase">Customer Portal</h3>
+            <p className="text-gray-700 font-medium">Transparency with precise location pinning and real-time tracking.</p>
           </div>
         </div>
+      </div>
 
-        {/* Team Section */}
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Our Development Team</h2>
-          <p className="text-gray-600 text-center mb-12 text-lg">
+      {/* Team Section - Keep as is */}
+      <div className="bg-gray-50 py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-black mb-4 uppercase text-center">
+            Development <span className="text-[#F49320]">Team</span>
+          </h2>
+          <div className="w-32 h-2 bg-[#1965A5] mb-6 mx-auto"></div>
+          <p className="text-gray-600 text-center mb-16 text-lg font-medium">
             Meet the talented individuals behind <span className="text-[#F49320]">Lami</span><span className="text-[#1965A5]">Go</span>
           </p>
 
