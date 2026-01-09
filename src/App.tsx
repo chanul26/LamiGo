@@ -1,24 +1,13 @@
-import Hero from './components/Hero';
-import ProblemSection from './components/ProblemSection';
-import SolutionSection from './components/SolutionSection';
-import PlatformComponents from './components/PlatformComponents';
-import Features from './components/Features';
-import WhyCourierAI from './components/WhyCourierAI';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import AboutPage from './components/About';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Hero />
-      <ProblemSection />
-      <SolutionSection />
-      <PlatformComponents />
-      <Features />
-      <WhyCourierAI />
-      <CTA />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<AboutPage />} />
+    </Routes>
   );
 }
 

@@ -1,6 +1,7 @@
 import { ArrowRight, Play, MapPin, Clock, CheckCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo1.png';
 
 type HeadlineWord = {
@@ -70,7 +71,7 @@ export default function Hero() {
 
           <div className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-            <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+            <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors">About</Link>
             <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
             <button className="px-6 py-2.5 bg-[#1965A5] text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium">
               Get Started

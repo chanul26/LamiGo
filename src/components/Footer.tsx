@@ -1,5 +1,6 @@
 import { MapPin, Mail, Phone, Linkedin, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo1.png';
 
 export default function Footer() {
@@ -67,9 +68,15 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.href} className="text-gray-900">
-                    {link.label}
-                  </a>
+                  {link.label === 'About' ? (
+                    <Link to="/about" className="text-gray-900">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className="text-gray-900">
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
