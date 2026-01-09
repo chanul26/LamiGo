@@ -15,7 +15,7 @@ const AboutPage = () => {
       github: ""
     },
     {
-      name: "Pilleyan",
+      name: "Laksayan",
       role: "Implementation Lead (Frontend & Backend)",
       focus: "System Architecture, FastAPI Backend, and Web/Mobile Implementation",
       image: "", // Add your image path here
