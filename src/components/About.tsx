@@ -14,26 +14,27 @@ const teamMembers = [
     linkedin: "",
     github: ""
   },
-  {
-    name: "Laksayan",
+    {
+    name: "Chanul Navindu",
     role: "Implementation Lead (Frontend & Backend)",
     focus: "System Architecture, FastAPI Backend, and Web/Mobile Implementation",
     image: "",
     linkedin: "",
     github: ""
-  },
+  }
+ ,
   {
     name: "Nevith Perera",
-    role: "Developer",
-    focus: "Support for Mobile/Web frontend features",
+    role: "Quality Assurance & Documentation Lead",
+    focus: "Quality Assurance, Testing, and Documentation",
     image: "",
     linkedin: "",
     github: ""
   },
-  {
-    name: "Chanul Navindu",
-    role: "Developer / Business Analyst",
-    focus: "Business Model Canvas and UI/UX Design coordination",
+ {
+    name: "Laksayan",
+    role: "Developer",
+    focus: "Support for Mobile/Web frontend features",
     image: "",
     linkedin: "",
     github: ""
@@ -48,7 +49,7 @@ const teamMembers = [
   },
   {
     name: "Kaarunjan Sathiyaseelan",
-    role: "Quality Assurance",
+    role: "developer",
     focus: "System testing, evaluation metrics (MAE/RMSE), and documentation",
     image: "",
     linkedin: "",
