@@ -22,7 +22,7 @@ const teamMembers = [
     focus: "System Architecture, FastAPI Backend, and Web/Mobile Implementation",
     image: "",
     linkedin: "https://www.linkedin.com/in/chanul-nanvidu/",
-    github: ""
+    github: "https://github.com/chanul26"
   }
  ,
   {
@@ -376,10 +376,10 @@ const AboutPage = () => {
                     {member.focus}
                   </p>
                   <div className="flex gap-4">
-                    <a href="#" className="w-10 h-10 bg-[#1965A5]/10 rounded-full flex items-center justify-center hover:bg-[#1965A5] transition-all group">
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#1965A5]/10 rounded-full flex items-center justify-center hover:bg-[#1965A5] transition-all group">
                       <Linkedin className="w-5 h-5 text-[#1965A5] group-hover:text-white" />
                     </a>
-                    <a href="#" className="w-10 h-10 bg-black/10 rounded-full flex items-center justify-center hover:bg-black transition-all group">
+                    <a href={member.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-black/10 rounded-full flex items-center justify-center hover:bg-black transition-all group">
                       <Github className="w-5 h-5 text-black group-hover:text-white" />
                     </a>
                   </div>
