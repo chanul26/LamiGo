@@ -80,7 +80,7 @@ export default function Hero() {
         </div>
       </nav>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 md:pt-32 lg:pt-40 pb-24 md:pb-40 lg:pb-48">
         <div className="max-w-4xl mx-auto">
           {/* Centered Content */}
           <div className="text-center space-y-8">
@@ -143,87 +143,9 @@ export default function Hero() {
               </button>
             </motion.div>
 
-            <motion.div
-              className="flex items-center justify-center space-x-8 pt-8"
-              initial={{ opacity: 0, y: 12 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 1 }}
-            >
-              <div className="flex items-center space-x-2">
-                <Clock className="w-5 h-5 text-[#1965A5]" />
-                <span className="text-sm text-gray-600">AI-Powered ETAs</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-5 h-5 text-[#1965A5]" />
-                <span className="text-sm text-gray-600">Real-Time Tracking</span>
-              </div>
-            </motion.div>
+
           </div>
 
-          {/* Metrics Card Below */}
-          <motion.div
-            className="mt-16"
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between pb-6 border-b border-gray-200">
-                  <h3 className="text-xl font-bold text-gray-900">Platform Metrics</h3>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-gray-600">Live</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <MetricCard
-                    label="Active Deliveries"
-                    value="247"
-                    change="↑ 12% from yesterday"
-                    changeColor="text-green-600"
-                    delay={0.6}
-                    isVisible={isVisible}
-                  />
-                  <MetricCard
-                    label="Avg. ETA Accuracy"
-                    value="94%"
-                    change="↑ 3% this week"
-                    changeColor="text-green-600"
-                    delay={0.7}
-                    isVisible={isVisible}
-                  />
-                  <MetricCard
-                    label="Routes Optimized"
-                    value="1,429"
-                    change="Today"
-                    changeColor="text-blue-600"
-                    delay={0.8}
-                    isVisible={isVisible}
-                  />
-                  <MetricCard
-                    label="Time Saved"
-                    value="18h"
-                    change="Per driver/day"
-                    changeColor="text-blue-600"
-                    delay={0.9}
-                    isVisible={isVisible}
-                  />
-                </div>
-
-                <div className="pt-4 border-t border-gray-200">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">System Performance</span>
-                    <span className="font-semibold text-green-600 flex items-center space-x-1">
-                      <CheckCircle className="w-4 h-4" />
-                      <span>Optimal</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
 
