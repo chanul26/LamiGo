@@ -13,7 +13,7 @@ const teamMembers = [
     role: "Model & Algorithm Lead",
     focus: "DeepFM Architecture, Simulated Annealing logic, and ML Pipeline",
     image: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/heshadha/",
     github: ""
   },
     {
@@ -21,7 +21,7 @@ const teamMembers = [
     role: "Implementation Lead (Frontend & Backend)",
     focus: "System Architecture, FastAPI Backend, and Web/Mobile Implementation",
     image: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/chanul-nanvidu/",
     github: ""
   }
  ,
@@ -30,15 +30,15 @@ const teamMembers = [
     role: "Quality Assurance & Documentation Lead",
     focus: "Quality Assurance, Testing, and Documentation",
     image: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/nevith-perera-287298233/",
     github: ""
   },
  {
-    name: "Laksayan",
+    name: "Laksayan Uthayakumaran",
     role: "Developer",
     focus: "Support for Mobile/Web frontend features",
     image: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7356612468716068865/",
     github: ""
   },
   {
@@ -46,7 +46,7 @@ const teamMembers = [
     role: "Developer",
     focus: "Database integration and API service support",
     image: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/azmeth-sajjad-485793254/",
     github: ""
   },
   {
@@ -54,7 +54,7 @@ const teamMembers = [
     role: "developer",
     focus: "System testing, evaluation metrics (MAE/RMSE), and documentation",
     image: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/kaarunjan-sathiyaseelan-8738582b3/",
     github: ""
   }
 ];
