@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Github, Truck, Users, BarChart3, ArrowLeft, Zap, Target, Boxes } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logo from '../assets/logo1.png';
+import { ThemeToggle } from './ThemeToggle';
 
 const AboutPage = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const teamMembers = [
     {
       name: "Heshadha Mahaarachchi",
@@ -103,25 +114,28 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
       {/* Navigation */}
-      <nav className="relative z-10 max-w-7xl mx-auto px-6 py-6 border-b-2 border-black">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2 group">
-            <ArrowLeft className="w-5 h-5 text-black group-hover:text-[#1965A5] transition-colors" />
-            <img src={logo} alt="Lamigo Logo" className="h-16 w-auto" />
-          </Link>
-          <div className="flex items-center space-x-6">
-            <Link to="/#features" className="text-black hover:text-[#1965A5] font-medium transition-colors">Features</Link>
-            <Link to="/about" className="text-[#F49320] font-bold">About</Link>
-            <Link to="/#contact" className="text-black hover:text-[#1965A5] font-medium transition-colors">Contact</Link>
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b-2 border-black dark:border-gray-800 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center space-x-2 group">
+              <ArrowLeft className="w-5 h-5 text-black dark:text-white group-hover:text-[#1965A5] transition-colors" />
+              <img src={logo} alt="Lamigo Logo" className={`w-auto transition-all duration-300 ${isScrolled ? 'h-10' : 'h-12'}`} />
+            </Link>
+            <div className="flex items-center space-x-6">
+              <Link to="/#features" className="text-black dark:text-gray-300 hover:text-[#1965A5] font-medium transition-colors">Features</Link>
+              <Link to="/about" className="text-[#F49320] font-bold">About</Link>
+              <Link to="/#contact" className="text-black dark:text-gray-300 hover:text-[#1965A5] font-medium transition-colors">Contact</Link>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section with Asymmetric Design */}
       <motion.div 
-        className="relative"
+        className={`relative transition-all duration-300 ${isScrolled ? 'pt-20' : 'pt-24'}`}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}

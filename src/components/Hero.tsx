@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo1.png';
+import { ThemeToggle } from './ThemeToggle';
 
 type HeadlineWord = {
   text: string;
@@ -13,9 +14,15 @@ type HeadlineWord = {
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Headline words with animation directions
@@ -57,37 +64,40 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-white">
+    <div className="relative overflow-hidden bg-white dark:bg-gray-950 transition-colors duration-300">
       <div className="absolute inset-0" style={{
         backgroundImage: 'linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)',
         backgroundSize: '50px 50px'
       }}></div>
 
-      <nav className="relative z-10 max-w-7xl mx-auto px-6 py-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <img src={logo} alt="Lamigo Logo" className="h-20 w-auto" />
-          </div>
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <img src={logo} alt="Lamigo Logo" className={`w-auto transition-all duration-300 ${isScrolled ? 'h-10' : 'h-12'}`} />
+            </div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-            <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors">About</Link>
-            <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
-            <button className="px-6 py-2.5 bg-[#1965A5] text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium">
-              Get Started
-            </button>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#features" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a>
+              <Link to="/about" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">About</Link>
+              <a href="#contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+              <ThemeToggle />
+              <button className="px-6 py-2 bg-[#1965A5] text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium">
+                Get Started
+              </button>
+            </div>
           </div>
         </div>
       </nav>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 md:pt-32 lg:pt-40 pb-24 md:pb-40 lg:pb-48">
+      <div className={`relative z-10 max-w-7xl mx-auto px-6 transition-all duration-300 ${isScrolled ? 'pt-24' : 'pt-32'} md:pt-40 lg:pt-48 pb-24 md:pb-40 lg:pb-48`}>
         <div className="max-w-4xl mx-auto">
           {/* Centered Content */}
           <div className="text-center space-y-8">
             {/* Animated Headline with words coming from different directions */}
             <div className="overflow-hidden">
               <motion.div
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight"
+                className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
                 initial="hidden"
                 animate={isVisible ? 'show' : 'hidden'}
                 variants={{
@@ -118,7 +128,7 @@ export default function Hero() {
             </div>
 
             <motion.p
-              className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto"
+              className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 12 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
