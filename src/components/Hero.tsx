@@ -1,6 +1,6 @@
-import { ArrowRight, Play, MapPin, Clock, CheckCircle } from 'lucide-react';
+import { ArrowRight, Play, MapPin, Clock, CheckCircle, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo1.png';
 import { ThemeToggle } from './ThemeToggle';
@@ -15,6 +15,7 @@ type HeadlineWord = {
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -25,7 +26,14 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Headline words with animation directions
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
+
   const headlineWords: HeadlineWord[] = [
     { text: 'Last-Mile', direction: 'top', isOrange: true },
     { text: 'Delivery', direction: 'left' },
@@ -33,7 +41,6 @@ export default function Hero() {
     { text: 'Platform', direction: 'right', isBlue: true },
   ];
 
-  // Animation variants for each direction
   const getVariant = (direction: 'top' | 'bottom' | 'left' | 'right') => {
     const directionOffsets = {
       top: { y: [-60, 0], x: [0, 0] },
@@ -70,120 +77,148 @@ export default function Hero() {
         backgroundSize: '50px 50px'
       }}></div>
 
-      <nav className={`fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-[100] bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 transition-all duration-300 ${isScrolled ? 'py-2 shadow-md' : 'py-4'}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <img src={logo} alt="Lamigo Logo" className={`w-auto transition-all duration-300 ${isScrolled ? 'h-10' : 'h-12'}`} />
+              <img src={logo} alt="Lamigo Logo" className="h-14 md:h-20 w-auto transition-all duration-300" />
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Features</a>
-              <Link to="/about" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">About</Link>
-              <a href="#contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+              <a href="#features" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">Features</a>
+              <Link to="/about" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">About</Link>
+              <a href="#contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">Contact</a>
               <ThemeToggle />
               <button className="px-6 py-2 bg-[#1965A5] text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium">
                 Get Started
+              </button>
+            </div>
+            
+            <div className="md:hidden flex items-center space-x-4">
+              <ThemeToggle />
+              <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-900 dark:text-white p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all relative z-[110]"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
         </div>
       </nav>
 
-      <div className={`relative z-10 max-w-7xl mx-auto px-6 transition-all duration-300 ${isScrolled ? 'pt-24' : 'pt-32'} md:pt-40 lg:pt-48 pb-24 md:pb-40 lg:pb-48`}>
-        <div className="max-w-4xl mx-auto">
-          {/* Centered Content */}
-          <div className="text-center space-y-8">
-            {/* Animated Headline with words coming from different directions */}
-            <div className="overflow-hidden">
-              <motion.div
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
-                initial="hidden"
-                animate={isVisible ? 'show' : 'hidden'}
-                variants={{
-                  hidden: {},
-                  show: {
-                    transition: {
-                      staggerChildren: 0.12,
-                      delayChildren: 0.2,
-                    },
-                  },
-                }}
-              >
-                {headlineWords.map((word, idx) => (
-                  <motion.span
-                    key={idx}
-                    variants={getVariant(word.direction)}
-                    className="inline-block"
-                    style={{
-                      marginRight: idx < headlineWords.length - 1 ? '0.3em' : 0,
-                    }}
-                  >
-                    <span className={word.isOrange ? 'text-orange-500' : word.isBlue ? 'text-[#1965A5]' : ''}>
-                      {word.text}
-                    </span>
-                  </motion.span>
-                ))}
-              </motion.div>
-            </div>
-
-            <motion.p
-              className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 12 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              Accurate ETAs, optimized delivery routes, real-time tracking, and seamless customer communication — all in one intelligent platform.
-            </motion.p>
-
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 12 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMenuOpen(false)}
+              className="fixed inset-0 z-[90] bg-black/60 backdrop-blur-md md:hidden"
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed right-0 top-0 bottom-0 z-[105] w-[85%] max-w-sm bg-white dark:bg-gray-950 shadow-2xl md:hidden"
             >
-              <button className="group px-8 py-4 bg-[#1965A5] text-white rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-200 font-semibold flex items-center justify-center space-x-2">
-                <span>Get Started</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <button className="group px-8 py-4 bg-white border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 hover:shadow-lg transition-all duration-200 font-semibold flex items-center justify-center space-x-2">
-                <Play className="w-5 h-5" />
-                <span>Watch Demo</span>
-              </button>
+              <div className="flex flex-col h-full pt-24 pb-12 px-8">
+                <div className="flex flex-col space-y-4 flex-1">
+                  <a 
+                    href="#features" 
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-2xl font-bold text-gray-900 dark:text-white p-4 rounded-2xl hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+                  >
+                    Features
+                  </a>
+                  <Link 
+                    to="/about" 
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-2xl font-bold text-gray-900 dark:text-white p-4 rounded-2xl hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+                  >
+                    About
+                  </Link>
+                  <a 
+                    href="#contact" 
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-2xl font-bold text-gray-900 dark:text-white p-4 rounded-2xl hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+                  >
+                    Contact
+                  </a>
+                </div>
+                <button className="w-full py-5 bg-[#1965A5] text-white rounded-2xl font-black text-xl shadow-xl active:scale-95 transition-transform">
+                  Get Started
+                </button>
+              </div>
             </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
-
+      <div className={`relative z-10 max-w-7xl mx-auto px-6 transition-all duration-300 ${isScrolled ? 'pt-24' : 'pt-32'} md:pt-40 lg:pt-48 pb-28 md:pb-80 lg:pb-78`}>
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="overflow-hidden">
+            <motion.div
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
+              initial="hidden"
+              animate={isVisible ? 'show' : 'hidden'}
+              variants={{
+                hidden: {},
+                show: {
+                  transition: {
+                    staggerChildren: 0.12,
+                    delayChildren: 0.2,
+                  },
+                },
+              }}
+            >
+              {headlineWords.map((word, idx) => (
+                <motion.span
+                  key={idx}
+                  variants={getVariant(word.direction)}
+                  className="inline-block"
+                  style={{
+                    marginRight: idx < headlineWords.length - 1 ? '0.3em' : 0,
+                  }}
+                >
+                  <span className={word.isOrange ? 'text-orange-500' : word.isBlue ? 'text-[#1965A5]' : ''}>
+                    {word.text}
+                  </span>
+                </motion.span>
+              ))}
+            </motion.div>
           </div>
 
+          <motion.p
+            className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 12 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            Accurate ETAs, optimized delivery routes, real-time tracking, and seamless customer communication — all in one intelligent platform.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 12 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <button className="group px-8 py-4 bg-[#1965A5] text-white rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-200 font-semibold flex items-center justify-center space-x-2">
+              <span>Get Started</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <button className="group px-8 py-4 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:border-gray-400 hover:shadow-lg transition-all duration-200 font-semibold flex items-center justify-center space-x-2">
+              <Play className="w-5 h-5" />
+              <span>Watch Demo</span>
+            </button>
+          </motion.div>
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gray-200"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gray-200 dark:bg-gray-800"></div>
     </div>
-  );
-}
-
-interface MetricCardProps {
-  label: string;
-  value: string;
-  change: string;
-  changeColor: string;
-  delay: number;
-  isVisible: boolean;
-}
-
-function MetricCard({ label, value, change, changeColor, delay, isVisible }: MetricCardProps) {
-  return (
-    <motion.div
-      className="p-5 bg-gray-50 rounded-lg border border-gray-200 hover:border-[#1965A5] transition-all duration-300"
-      initial={{ opacity: 0, y: 12 }}
-      animate={isVisible ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
-    >
-      <p className="text-sm font-medium text-gray-500 mb-1">{label}</p>
-      <p className="text-3xl font-bold text-gray-900">{value}</p>
-      <p className={`text-xs ${changeColor} mt-1`}>{change}</p>
-    </motion.div>
   );
 }
