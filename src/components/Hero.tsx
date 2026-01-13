@@ -1,9 +1,11 @@
-import { ArrowRight, Play, MapPin, Clock, CheckCircle, Menu, X } from 'lucide-react';
+import { ArrowRight, Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo1.png';
+import logoLight from '../assets/LamiGo_Logo_Light.svg';
+import logoDark from '../assets/LamiGo_Logo_Dark.svg';
 import { ThemeToggle } from './ThemeToggle';
+import { useTheme } from './ThemeProvider';
 
 type HeadlineWord = {
   text: string;
@@ -16,6 +18,8 @@ export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme } = useTheme();
+  const logo = theme === 'dark' ? logoDark : logoLight;
 
   useEffect(() => {
     setIsVisible(true);
@@ -81,7 +85,7 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <img src={logo} alt="Lamigo Logo" className="h-14 md:h-20 w-auto transition-all duration-300" />
+              <img src={logo} alt="Lamigo Logo" className="h-8 md:h-12 w-auto transition-all duration-300" />
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -202,23 +206,46 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
             initial={{ opacity: 0, y: 12 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <button className="group px-8 py-4 bg-[#1965A5] text-white rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-200 font-semibold flex items-center justify-center space-x-2">
+            <motion.button
+              className="group px-8 py-4 bg-[#1965A5] text-white rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-200 font-semibold flex items-center justify-center space-x-2"
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+              whileTap={{ scale: 0.95 }}
+            >
               <span>Get Started</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="group px-8 py-4 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:border-gray-400 hover:shadow-lg transition-all duration-200 font-semibold flex items-center justify-center space-x-2">
-              <Play className="w-5 h-5" />
-              <span>Watch Demo</span>
-            </button>
+            </motion.button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isVisible ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="flex justify-center"
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChevronDown className="w-8 h-8 text-gray-500 dark:text-gray-400" />
+            </motion.div>
           </motion.div>
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gray-200 dark:bg-gray-800"></div>
+
+      <motion.button
+        animate={isScrolled ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.3 }}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className={`fixed bottom-8 right-8 p-3 bg-[#1965A5] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 z-50 ${isScrolled ? 'pointer-events-auto' : 'pointer-events-none'}`}
+      >
+        <ChevronUp className="w-6 h-6" />
+      </motion.button>
     </div>
   );
 }

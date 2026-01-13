@@ -1,9 +1,13 @@
 import { MapPin, Mail, Phone, Linkedin, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo1.png';
+import logoLight from '../assets/LamiGo_Logo_Light.svg';
+import logoDark from '../assets/LamiGo_Logo_Dark.svg';
+import { useTheme } from './ThemeProvider';
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const logo = theme === 'dark' ? logoDark : logoLight;
   const footerLinks = {
     product: [
       { label: 'Features', href: '#features' },
@@ -31,7 +35,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <img src={logo} alt="Lamigo Logo" className="h-20 w-auto" />
+              <img src={logo} alt="Lamigo Logo" className="h-12 w-auto" />
             </div>
 
             <p className="text-gray-900 dark:text-gray-400 mb-6 leading-relaxed">

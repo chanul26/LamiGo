@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Github, Truck, Users, BarChart3, ArrowLeft, Zap, Target, Boxes, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../assets/logo1.png';
+import logoLight from '../assets/LamiGo_Logo_Light.svg';
+import logoDark from '../assets/LamiGo_Logo_Dark.svg';
 import { ThemeToggle } from './ThemeToggle';
+import { useTheme } from './ThemeProvider';
 
 const teamMembers = [
   {
@@ -60,6 +62,8 @@ const teamMembers = [
 const AboutPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme } = useTheme();
+  const logo = theme === 'dark' ? logoDark : logoLight;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -133,7 +137,7 @@ const AboutPage = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2 group">
               <ArrowLeft className="w-5 h-5 text-black dark:text-white group-hover:text-[#1965A5] transition-colors" />
-              <img src={logo} alt="Lamigo Logo" className="h-14 md:h-20 w-auto transition-all duration-300" />
+              <img src={logo} alt="Lamigo Logo" className="h-8 md:h-12 w-auto transition-all duration-300" />
             </Link>
             <div className="hidden md:flex items-center space-x-6">
               <Link to="/#features" className="text-black dark:text-gray-300 hover:text-[#1965A5] font-medium transition-colors">Features</Link>
