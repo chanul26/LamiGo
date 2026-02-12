@@ -184,7 +184,7 @@ export default function Hero() {
                     onClick={() => setIsMenuOpen(false)}
                     className="text-2xl font-bold text-gray-900 dark:text-white p-4 rounded-2xl hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
                   >
-                    Contact
+                    Contact Us
                   </a>
                 </div>
                 <button className="w-full py-5 bg-[#1965A5] text-white rounded-2xl font-black text-xl shadow-xl active:scale-95 transition-transform">
