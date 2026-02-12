@@ -81,36 +81,70 @@ export default function Hero() {
         backgroundSize: '50px 50px'
       }}></div>
 
-      <nav className={`fixed top-0 left-0 right-0 z-[100] bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 transition-all duration-300 ${isScrolled ? 'py-2 shadow-md' : 'py-4'}`}>
+      <motion.nav 
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-[100] bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 transition-all duration-300 ${isScrolled ? 'py-2 shadow-xl' : 'py-4 shadow-none'}`}
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
+            <motion.div 
+              className="flex items-center space-x-3"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
               <img src={logo} alt="Lamigo Logo" className="h-8 md:h-12 w-auto transition-all duration-300" />
-            </div>
+            </motion.div>
 
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">Features</a>
-              <Link to="/about" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">About</Link>
-              <a href="#contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">Contact</a>
+              <motion.a 
+                href="#features" 
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold"
+                whileHover={{ y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                Features
+              </motion.a>
+              <motion.div
+                whileHover={{ y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Link to="/about" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">About</Link>
+              </motion.div>
+              <motion.a 
+                href="#contact" 
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold"
+                whileHover={{ y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                Contact
+              </motion.a>
               <ThemeToggle />
-              <button className="px-6 py-2 bg-[#1965A5] text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium">
+              <motion.button 
+                className="px-6 py-2 bg-[#1965A5] text-white rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Get Started
-              </button>
+              </motion.button>
             </div>
             
             <div className="md:hidden flex items-center space-x-4">
               <ThemeToggle />
-              <button 
+              <motion.button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-900 dark:text-white p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all relative z-[110]"
                 aria-label="Toggle menu"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       <AnimatePresence>
         {isMenuOpen && (
