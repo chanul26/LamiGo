@@ -379,8 +379,8 @@ const AboutPage = () => {
                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#1965A5]/10 rounded-full flex items-center justify-center hover:bg-[#1965A5] transition-all group">
                       <Linkedin className="w-5 h-5 text-[#1965A5] group-hover:text-white" />
                     </a>
-                    <a href={member.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-black/10 rounded-full flex items-center justify-center hover:bg-black transition-all group">
-                      <Github className="w-5 h-5 text-black group-hover:text-white" />
+                    <a href={member.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-black/10 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-black dark:hover:bg-gray-600 transition-all group">
+                      <Github className="w-5 h-5 text-black dark:text-white group-hover:text-white" />
                     </a>
                   </div>
                 </div>
