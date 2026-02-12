@@ -39,7 +39,9 @@ export default function Footer() {
             </div>
 
             <p className="text-gray-900 dark:text-gray-400 mb-6 leading-relaxed">
-              AI-powered last-mile delivery optimization platform designed for courier companies in Sri Lanka. Transform your operations with intelligent automation.
+              Accurate ETAs, optimized delivery routes, 
+              real-time tracking, and seamless customer communication — a
+              ll in one intelligent platform.
             </p>
 
             <div className="space-y-3">
