@@ -110,7 +110,7 @@ export default function Footer() {
               <motion.a href="#" className="text-gray-900 dark:text-gray-400 hover:text-[#1965A5]" whileHover={{ scale: 1.06 }}>
                 <Twitter className="w-5 h-5" />
               </motion.a>
-              <motion.a href="#" className="text-gray-900 dark:text-gray-400 hover:text-[#1965A5]" whileHover={{ scale: 1.06 }}>
+              <motion.a href="https://www.linkedin.com/company/110917482/admin/dashboard/" className="text-gray-900 dark:text-gray-400 hover:text-[#1965A5]" whileHover={{ scale: 1.06 }}>
                 <Linkedin className="w-5 h-5" />
               </motion.a>
             </div>
