@@ -31,7 +31,7 @@ const teamMembers = [
   {
     name: "Chanul Navindu",
     role: "Implementation Lead (Frontend & Backend)",
-    focus: "System Architecture, FastAPI Backend, and Web/Mobile Implementation",
+    focus: "System Architecture, FastAPI Backend, CI/CD, Docker and Web Implementation",
     image: chanul,
     linkedin: "https://www.linkedin.com/in/chanul-nanvidu/",
     github: "https://github.com/chanul26"
