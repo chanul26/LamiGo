@@ -4,6 +4,9 @@ import { Linkedin, Github, Truck, Users, BarChart3, ArrowLeft, Zap, Target, Boxe
 import { motion, AnimatePresence } from 'framer-motion';
 import logoLight from '../assets/LamiGo_Logo_Light.svg';
 import logoDark from '../assets/LamiGo_Logo_Dark.svg';
+import Kaarunjan from '../assets/Kaarunjan.png';
+import Azmeth from '../assets/Azmeth.png';
+import Laksayan from '../assets/Laksayan.png';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
 
@@ -16,7 +19,7 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/heshadha/",
     github: ""
   },
-    {
+  {
     name: "Chanul Navindu",
     role: "Implementation Lead (Frontend & Backend)",
     focus: "System Architecture, FastAPI Backend, and Web/Mobile Implementation",
@@ -24,7 +27,7 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/chanul-nanvidu/",
     github: "https://github.com/chanul26"
   }
- ,
+  ,
   {
     name: "Nevith Perera",
     role: "Quality Assurance & Documentation Lead",
@@ -33,11 +36,11 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/nevith-perera-287298233/",
     github: ""
   },
- {
+  {
     name: "Laksayan Uthayakumaran",
     role: "Developer",
     focus: "Support for Mobile/Web frontend features",
-    image: "",
+    image: Laksayan,
     linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7356612468716068865/",
     github: ""
   },
@@ -45,7 +48,7 @@ const teamMembers = [
     name: "Azmeth Sajjad",
     role: "Developer",
     focus: "Database integration and API service support",
-    image: "",
+    image: Azmeth,
     linkedin: "https://www.linkedin.com/in/azmeth-sajjad-485793254/",
     github: ""
   },
@@ -53,7 +56,7 @@ const teamMembers = [
     name: "Kaarunjan Sathiyaseelan",
     role: "developer",
     focus: "System testing, evaluation metrics (MAE/RMSE), and documentation",
-    image: "",
+    image: Kaarunjan,
     linkedin: "https://www.linkedin.com/in/kaarunjan-sathiyaseelan-8738582b3/",
     github: ""
   }
@@ -147,7 +150,7 @@ const AboutPage = () => {
             </div>
             <div className="md:hidden flex items-center space-x-4">
               <ThemeToggle />
-              <button 
+              <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-600 dark:text-gray-400 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors relative z-[110]"
               >
@@ -177,22 +180,22 @@ const AboutPage = () => {
               className="fixed right-0 top-0 bottom-0 z-[105] w-[80%] max-w-sm bg-white dark:bg-gray-950 p-6 pt-24 md:hidden shadow-2xl"
             >
               <div className="flex flex-col space-y-6">
-                <Link 
-                  to="/" 
+                <Link
+                  to="/"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-xl font-bold text-gray-900 dark:text-white p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
                 >
                   Home
                 </Link>
-                <Link 
-                  to="/about" 
+                <Link
+                  to="/about"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-xl font-bold text-[#F49320] p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
                 >
                   About
                 </Link>
-                <Link 
-                  to="/#contact" 
+                <Link
+                  to="/#contact"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-xl font-bold text-gray-900 dark:text-white p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
                 >
@@ -205,7 +208,7 @@ const AboutPage = () => {
       </AnimatePresence>
 
       {/* Hero Section with Asymmetric Design */}
-      <motion.div 
+      <motion.div
         className={`relative transition-all duration-300 ${isScrolled ? 'pt-20' : 'pt-24'}`}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -214,7 +217,7 @@ const AboutPage = () => {
         <div className="absolute top-0 right-0 w-full lg:w-1/3 h-full bg-[#F49320] opacity-10 lg:opacity-100"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-24">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <motion.div 
+            <motion.div
               className="flex-1 text-center lg:text-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -224,7 +227,7 @@ const AboutPage = () => {
                 WHO WE ARE
               </div>
               <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight dark:text-white">
-                About<br/>
+                About<br />
                 <span className="text-[#F49320]">Lami</span><span className="text-[#1965A5]">Go</span>
               </h1>
               <div className="w-20 h-1 bg-[#1965A5] mb-6 mx-auto lg:mx-0"></div>
@@ -232,7 +235,7 @@ const AboutPage = () => {
                 Bridging the critical "last-mile" gap in urban logistics through intelligent software solutions.
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="flex-1 relative w-full max-w-xl lg:max-w-none"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -250,7 +253,7 @@ const AboutPage = () => {
       </motion.div>
 
       {/* Mission Section - Modern Styled Boxes */}
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-6 py-24"
         variants={containerVariants}
         initial="hidden"
@@ -259,7 +262,7 @@ const AboutPage = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Mission */}
-          <motion.div 
+          <motion.div
             className="p-10 relative rounded-[2.5rem] bg-white dark:bg-gray-900 shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden group cursor-default"
             variants={cardVariants}
             whileHover="hover"
@@ -273,7 +276,7 @@ const AboutPage = () => {
           </motion.div>
 
           {/* Innovation */}
-          <motion.div 
+          <motion.div
             className="p-10 relative rounded-[2.5rem] bg-[#F49320] shadow-2xl overflow-hidden group cursor-default"
             variants={cardVariants}
             whileHover="hover"
@@ -287,7 +290,7 @@ const AboutPage = () => {
           </motion.div>
 
           {/* Platform */}
-          <motion.div 
+          <motion.div
             className="p-10 relative rounded-[2.5rem] bg-white dark:bg-gray-900 shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden group cursor-default"
             variants={cardVariants}
             whileHover="hover"
@@ -303,7 +306,7 @@ const AboutPage = () => {
       </motion.div>
 
       {/* Technical Innovation */}
-      <motion.div 
+      <motion.div
         className="bg-black dark:bg-gray-900 text-white py-24"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -313,7 +316,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-6 text-center md:text-left">
           <motion.h2 className="text-4xl md:text-5xl font-black mb-4 uppercase">Technical Core</motion.h2>
           <motion.div className="w-32 h-2 bg-[#1965A5] mb-12 mx-auto md:mx-0"></motion.div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             <motion.div className="p-8 bg-white dark:bg-gray-800 text-black dark:text-white rounded-3xl shadow-xl border-4 border-[#1965A5] text-left">
               <h3 className="text-2xl font-black uppercase mb-4">Dynamic Route Optimization</h3>
@@ -359,17 +362,25 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase text-center dark:text-white">Development Team</h2>
           <div className="w-32 h-2 bg-[#1965A5] mb-16 mx-auto"></div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="bg-white dark:bg-gray-900 p-8 rounded-[2rem] shadow-xl border border-gray-100 dark:border-gray-800 transition-all hover:shadow-2xl"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 bg-[#1965A5] rounded-full flex items-center justify-center text-white text-3xl font-black mb-6 shadow-lg">
-                    {member.name.charAt(0)}
-                  </div>
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-24 h-24 rounded-full object-cover mb-6 shadow-lg border-4 border-[#1965A5]"
+                    />
+                  ) : (
+                    <div className="w-24 h-24 bg-[#1965A5] rounded-full flex items-center justify-center text-white text-3xl font-black mb-6 shadow-lg">
+                      {member.name.charAt(0)}
+                    </div>
+                  )}
                   <h3 className="text-xl font-black mb-2 uppercase dark:text-white">{member.name}</h3>
                   <p className="text-[#F49320] font-bold mb-4 uppercase text-xs tracking-widest">{member.role}</p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 font-medium">
