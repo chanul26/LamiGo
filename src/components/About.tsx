@@ -367,32 +367,60 @@ const AboutPage = () => {
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
-                className="bg-white dark:bg-gray-900 p-8 rounded-[2rem] shadow-xl border border-gray-100 dark:border-gray-800 transition-all hover:shadow-2xl"
+                className="bg-white dark:bg-gray-900 p-8 rounded-[2rem] shadow-xl border border-gray-100 dark:border-gray-800 transition-all hover:shadow-2xl hover:-translate-y-2"
+                variants={teamCardVariants}
+                initial="hidden"
+                whileInView="show"
+                whileHover="hover"
+                viewport={{ once: true, amount: 0.2 }}
               >
                 <div className="flex flex-col items-center text-center">
+                  {/* Image Section */}
                   {member.image ? (
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-24 h-24 rounded-full object-cover mb-6 shadow-lg border-4 border-[#1965A5]"
+                      className="w-40 h-40 rounded-2xl object-cover mb-6 shadow-lg border-4 border-[#1965A5]"
                     />
                   ) : (
-                    <div className="w-24 h-24 bg-[#1965A5] rounded-full flex items-center justify-center text-white text-3xl font-black mb-6 shadow-lg">
+                    <div className="w-40 h-40 bg-gradient-to-br from-[#1965A5] to-[#F49320] rounded-2xl flex items-center justify-center text-white text-5xl font-black mb-6 shadow-lg">
                       {member.name.charAt(0)}
                     </div>
                   )}
-                  <h3 className="text-xl font-black mb-2 uppercase dark:text-white">{member.name}</h3>
-                  <p className="text-[#F49320] font-bold mb-4 uppercase text-xs tracking-widest">{member.role}</p>
+
+                  {/* Details Section */}
+                  <h3 className="text-xl font-black mb-2 uppercase dark:text-white leading-tight">
+                    {member.name}
+                  </h3>
+                  <p className="text-[#F49320] font-bold mb-4 uppercase text-sm tracking-widest">
+                    {member.role}
+                  </p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 font-medium">
                     {member.focus}
                   </p>
+
+                  {/* Social Links */}
                   <div className="flex gap-4">
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#1965A5]/10 rounded-full flex items-center justify-center hover:bg-[#1965A5] transition-all group">
-                      <Linkedin className="w-5 h-5 text-[#1965A5] group-hover:text-white" />
-                    </a>
-                    <a href={member.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-black/10 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-black dark:hover:bg-gray-600 transition-all group">
-                      <Github className="w-5 h-5 text-black dark:text-white group-hover:text-white" />
-                    </a>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-11 h-11 bg-[#1965A5]/10 rounded-xl flex items-center justify-center hover:bg-[#1965A5] transition-all group"
+                      >
+                        <Linkedin className="w-5 h-5 text-[#1965A5] group-hover:text-white" />
+                      </a>
+                    )}
+                    {member.github && (
+                      <a
+                        href={member.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-11 h-11 bg-black/10 dark:bg-gray-700 rounded-xl flex items-center justify-center hover:bg-black dark:hover:bg-gray-600 transition-all group"
+                      >
+                        <Github className="w-5 h-5 text-black dark:text-white group-hover:text-white" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
