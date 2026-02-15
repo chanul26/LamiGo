@@ -17,7 +17,7 @@ const teamMembers = [
     focus: "DeepFM Architecture, Simulated Annealing logic, and ML Pipeline",
     image: "",
     linkedin: "https://www.linkedin.com/in/heshadha/",
-    github: ""
+    github: "https://github.com/heshadha"
   },
   {
     name: "Chanul Navindu",
@@ -34,7 +34,7 @@ const teamMembers = [
     focus: "Quality Assurance, Testing, and Documentation",
     image: "",
     linkedin: "https://www.linkedin.com/in/nevith-perera-287298233/",
-    github: ""
+    github: "https://github.com/nevith20241162-pixel"
   },
   {
     name: "Laksayan Uthayakumaran",
@@ -42,7 +42,7 @@ const teamMembers = [
     focus: "Support for Mobile/Web frontend features",
     image: Laksayan,
     linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7356612468716068865/",
-    github: ""
+    github: "https://github.com/LaksayanUthayakumaran"
   },
   {
     name: "Azmeth Sajjad",
@@ -50,7 +50,7 @@ const teamMembers = [
     focus: "Database integration and API service support",
     image: Azmeth,
     linkedin: "https://www.linkedin.com/in/azmeth-sajjad-485793254/",
-    github: ""
+    github: "https://github.com/Azmeth20230153"
   },
   {
     name: "Kaarunjan Sathiyaseelan",
@@ -58,7 +58,7 @@ const teamMembers = [
     focus: "System testing, evaluation metrics (MAE/RMSE), and documentation",
     image: Kaarunjan,
     linkedin: "https://www.linkedin.com/in/kaarunjan-sathiyaseelan-8738582b3/",
-    github: ""
+    github: "https://github.com/Kaarunjan"
   }
 ];
 
@@ -401,7 +401,7 @@ const AboutPage = () => {
 
                   {/* Social Links */}
                   <div className="flex gap-4">
-                    {member.linkedin && (
+                    {member.linkedin && member.linkedin.length > 0 && (
                       <a
                         href={member.linkedin}
                         target="_blank"
@@ -411,7 +411,7 @@ const AboutPage = () => {
                         <Linkedin className="w-5 h-5 text-[#1965A5] group-hover:text-white" />
                       </a>
                     )}
-                    {member.github && (
+                    {member.github && member.github.length > 0 && (
                       <a
                         href={member.github}
                         target="_blank"
