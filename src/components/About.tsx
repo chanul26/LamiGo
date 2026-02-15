@@ -7,6 +7,15 @@ import logoDark from '../assets/LamiGo_Logo_Dark.svg';
 import Kaarunjan from '../assets/Kaarunjan.png';
 import Azmeth from '../assets/Azmeth.png';
 import Laksayan from '../assets/Laksayan.png';
+//import HeshadhaGD from '../assets/HeshadhaGD.png';
+import ChanulGD from '../assets/ChanulGD.png';
+//import NevithGD from '../assets/NevithGD.png';
+
+import nevith from '../assets/nevith.png';
+import heshadha from '../assets/heshadha.png';
+import chanul from '../assets/chanul2.png';
+
+
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
 
@@ -15,7 +24,7 @@ const teamMembers = [
     name: "Heshadha Mahaarachchi",
     role: "Model & Algorithm Lead",
     focus: "DeepFM Architecture, Simulated Annealing logic, and ML Pipeline",
-    image: "",
+    image: heshadha,
     linkedin: "https://www.linkedin.com/in/heshadha/",
     github: "https://github.com/heshadha"
   },
@@ -23,7 +32,7 @@ const teamMembers = [
     name: "Chanul Navindu",
     role: "Implementation Lead (Frontend & Backend)",
     focus: "System Architecture, FastAPI Backend, and Web/Mobile Implementation",
-    image: "",
+    image: chanul,
     linkedin: "https://www.linkedin.com/in/chanul-nanvidu/",
     github: "https://github.com/chanul26"
   }
@@ -31,8 +40,8 @@ const teamMembers = [
   {
     name: "Nevith Perera",
     role: "Quality Assurance & Documentation Lead",
-    focus: "Quality Assurance, Testing, and Documentation",
-    image: "",
+    focus: "Mobile App, Quality Assurance, Testing, and Documentation",
+    image: nevith,
     linkedin: "https://www.linkedin.com/in/nevith-perera-287298233/",
     github: "https://github.com/nevith20241162-pixel"
   },
