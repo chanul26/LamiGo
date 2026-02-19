@@ -100,7 +100,7 @@ export default function Hero() {
             <div className="hidden md:flex items-center space-x-8">
               <motion.a 
                 href="#features" 
-                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold"
+                className="text-gray-900 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
               >
@@ -110,11 +110,11 @@ export default function Hero() {
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to="/about" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">About</Link>
+                <Link to="/about" className="text-gray-900 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">About</Link>
               </motion.div>
               <motion.a 
                 href="#contact" 
-                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold"
+                className="text-gray-900 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
               >
