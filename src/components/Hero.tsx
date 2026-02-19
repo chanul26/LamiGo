@@ -42,7 +42,7 @@ export default function Hero() {
     { text: 'Last-Mile', direction: 'top', isOrange: true },
     { text: 'Delivery', direction: 'left' },
     { text: 'Optimisation', direction: 'bottom' },
-    { text: 'Platform', direction: 'right', isBlue: true },
+    { text: 'Platform', direction: 'right', isOrange: true },
   ];
 
   const getVariant = (direction: 'top' | 'bottom' | 'left' | 'right') => {
