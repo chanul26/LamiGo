@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-lamigo-soft-white dark:bg-lamigo-gunmetal text-lamigo-gunmetal dark:text-lamigo-soft-white antialiased;
+  }
+}

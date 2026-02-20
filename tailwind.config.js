@@ -4,6 +4,13 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        lamigo: {
+          orange: '#fa7d43',      // Soft Tech Orange - accent, CTAs
+          gunmetal: '#1f2937',    // Deep Gunmetal - dark text, dark backgrounds
+          'soft-white': '#f3f4f6' // Soft White - light backgrounds, dark mode text
+        }
+      },
       animation: {
         'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'fade-in-scale': 'fadeInScale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',

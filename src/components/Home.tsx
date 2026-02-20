@@ -9,7 +9,7 @@ import Footer from './Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-lamigo-soft-white dark:bg-lamigo-gunmetal">
       <Hero />
       <ProblemSection />
       <SolutionSection />

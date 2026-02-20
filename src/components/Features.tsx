@@ -6,7 +6,7 @@ export default function Features() {
     {
       icon: Brain,
       title: 'AI & Automation',
-      color: 'bg-[#1965A5]',
+      color: 'bg-lamigo-orange',
       items: [
         'Machine-learning ETA prediction',
         'Route sequencing (TSP/VRP optimization)',
@@ -16,7 +16,7 @@ export default function Features() {
     {
       icon: Eye,
       title: 'Visibility & Tracking',
-      color: 'bg-[#1965A5]',
+      color: 'bg-lamigo-orange',
       items: [
         'Live driver location',
         'ETA updates',
@@ -26,7 +26,7 @@ export default function Features() {
     {
       icon: Wrench,
       title: 'Operational Tools',
-      color: 'bg-[#F49320]',
+      color: 'bg-lamigo-gunmetal',
       items: [
         'Delivery batching',
         'Commission calculation',
@@ -37,7 +37,7 @@ export default function Features() {
     {
       icon: Heart,
       title: 'Customer Experience',
-      color: 'bg-[#F49320]',
+      color: 'bg-lamigo-gunmetal',
       items: [
         'ETA link via SMS',
         'Real-time updates',
@@ -63,9 +63,9 @@ export default function Features() {
   };
 
   return (
-    <section className="py-24 bg-white dark:bg-gray-950 transition-colors duration-300 relative overflow-hidden">
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-100 dark:bg-orange-900/20 rounded-full blur-3xl opacity-20"></div>
+    <section className="py-24 bg-lamigo-soft-white dark:bg-lamigo-gunmetal transition-colors duration-300 relative overflow-hidden">
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-lamigo-orange/10 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-lamigo-gunmetal/20 rounded-full blur-3xl opacity-20"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
@@ -78,7 +78,7 @@ export default function Features() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="inline-flex items-center space-x-2 px-4 py-2 bg-gray-200 dark:bg-gray-800 text-orange-600 dark:text-orange-400 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center space-x-2 px-4 py-2 bg-lamigo-orange/20 text-lamigo-orange rounded-full text-sm font-medium mb-6"
           >
             <Zap className="w-4 h-4" />
             <span>Feature Highlights</span>
@@ -88,10 +88,10 @@ export default function Features() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
+            className="text-4xl md:text-5xl font-bold text-lamigo-gunmetal dark:text-lamigo-soft-white mb-6"
           >
             Everything You Need to{' '}
-            <span className="ext-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            <span className="text-4xl md:text-5xl font-bold text-lamigo-gunmetal dark:text-lamigo-soft-white mb-6">
               Succeed
             </span>
           </motion.h2>
@@ -100,7 +100,7 @@ export default function Features() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-xl text-gray-600 dark:text-gray-400"
+            className="text-xl text-lamigo-gunmetal/80 dark:text-lamigo-soft-white/80"
           >
             Comprehensive features designed to streamline every aspect of your delivery operations
           </motion.p>
@@ -123,17 +123,17 @@ export default function Features() {
               <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300 blur-xl"></div>
 
               <motion.div
-                className="relative p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300"
+                className="relative p-8 bg-lamigo-soft-white dark:bg-lamigo-gunmetal/80 rounded-2xl border border-lamigo-gunmetal/10 dark:border-lamigo-soft-white/10 hover:border-lamigo-orange/50 transition-all duration-300"
                 whileHover={{
                   boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
                   transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
                 }}
               >
                 <div className={`w-12 h-12 ${category.color} rounded-lg flex items-center justify-center mb-6`}>
-                  <category.icon className="w-6 h-6 text-white" />
+                  <category.icon className="w-6 h-6 text-lamigo-soft-white" />
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                <h3 className="text-xl font-semibold text-lamigo-gunmetal dark:text-lamigo-soft-white mb-4">
                   {category.title}
                 </h3>
 
@@ -142,9 +142,9 @@ export default function Features() {
                     <motion.li
                       key={itemIdx}
                       variants={listItem}
-                      className="flex items-center space-x-2 text-gray-600 dark:text-gray-400"
+                      className="flex items-center space-x-2 text-lamigo-gunmetal/80 dark:text-lamigo-soft-white/80"
                     >
-                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-lamigo-orange rounded-full flex-shrink-0"></div>
                       <span className="text-sm">{item}</span>
                     </motion.li>
                   ))}

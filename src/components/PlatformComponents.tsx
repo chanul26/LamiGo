@@ -6,7 +6,7 @@ export default function PlatformComponents() {
     {
       icon: Smartphone,
       title: 'Driver Mobile App',
-      color: 'bg-[#1965A5]',
+      color: 'bg-lamigo-orange',
       features: [
         { icon: Navigation, text: 'Optimally sorted delivery sequence' },
         { icon: MapPin, text: 'Open route in Google Maps' },
@@ -21,7 +21,7 @@ export default function PlatformComponents() {
     {
       icon: Globe,
       title: 'Customer Web Interface',
-      color: 'bg-[#F49320]',
+      color: 'bg-lamigo-gunmetal',
       features: [
         { icon: Clock, text: 'View accurate ETA' },
         { icon: FileText, text: 'Add delivery instructions' },
@@ -34,7 +34,7 @@ export default function PlatformComponents() {
     {
       icon: Building2,
       title: 'Station Management System',
-      color: 'bg-black',
+      color: 'bg-lamigo-orange',
       features: [
         { icon: Package, text: 'View all packages & delivery batches' },
         { icon: Users, text: 'Assign drivers' },
@@ -60,20 +60,20 @@ export default function PlatformComponents() {
   };
 
   return (
-    <section id="features" className="py-20 bg-gray-200">
+    <section id="features" className="py-20 bg-lamigo-gunmetal/5 dark:bg-lamigo-gunmetal/50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Platform Components</h2>
-          <p className="text-xl text-gray-600">
+          <h2 className="text-4xl font-bold text-lamigo-gunmetal dark:text-lamigo-soft-white mb-4">Platform Components</h2>
+          <p className="text-xl text-lamigo-gunmetal/80 dark:text-lamigo-soft-white/80">
             Purpose-built tools for drivers, customers, and station managers
           </p>
         </div>
 
         <motion.div className="grid lg:grid-cols-3 gap-8" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.16 }}>
           {components.map((component, idx) => (
-            <motion.div key={idx} variants={card} className="group bg-white rounded-2xl border border-gray-200 hover:shadow-2xl transition-all duration-300 overflow-hidden">
-              <div className={`${component.color} p-8 text-white`}>
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <motion.div key={idx} variants={card} className="group bg-lamigo-soft-white dark:bg-lamigo-gunmetal rounded-2xl border border-lamigo-gunmetal/10 dark:border-lamigo-soft-white/10 hover:shadow-2xl transition-all duration-300 overflow-hidden">
+              <div className={`${component.color} p-8 text-lamigo-soft-white`}>
+                <div className="w-16 h-16 bg-lamigo-soft-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <component.icon className="w-8 h-8" />
                 </div>
 
@@ -86,12 +86,12 @@ export default function PlatformComponents() {
                 {component.features.map((feature, featureIdx) => (
                   <div
                     key={featureIdx}
-                    className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex items-start space-x-3 p-3 rounded-lg hover:bg-lamigo-gunmetal/5 dark:hover:bg-lamigo-soft-white/5 transition-colors"
                   >
-                    <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-                      <feature.icon className="w-4 h-4 text-gray-600" />
+                    <div className="flex-shrink-0 w-8 h-8 bg-lamigo-gunmetal/10 dark:bg-lamigo-soft-white/10 rounded-lg flex items-center justify-center">
+                      <feature.icon className="w-4 h-4 text-lamigo-orange" />
                     </div>
-                    <span className="text-gray-700 text-sm leading-relaxed pt-1">
+                    <span className="text-lamigo-gunmetal dark:text-lamigo-soft-white text-sm leading-relaxed pt-1">
                       {feature.text}
                     </span>
                   </div>
