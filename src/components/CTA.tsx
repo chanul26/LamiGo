@@ -76,20 +76,7 @@ export default function CTA() {
               </motion.button>
             </motion.div>
 
-            <div className="mt-12 flex flex-wrap justify-center gap-8 text-lamigo-soft-white/90">
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-lamigo-orange rounded-full"></div>
-                <span className="text-sm">No credit card required</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-lamigo-orange rounded-full"></div>
-                <span className="text-sm">14-day free trial</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-lamigo-orange rounded-full"></div>
-                <span className="text-sm">Setup in minutes</span>
-              </div>
-            </div>
+            
           </div>
         </motion.div>
       </div>
