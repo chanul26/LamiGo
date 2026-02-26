@@ -15,10 +15,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme');
       if (saved === 'light' || saved === 'dark') return saved;
-      // Default to dark theme
-      return 'dark';
+      // Default to light theme
+      return 'light';
     }
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
