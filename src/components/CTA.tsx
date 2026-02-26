@@ -12,11 +12,7 @@ export default function CTA() {
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
         >
-          {/* <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-lamigo-orange rounded-full blur-3xl opacity-50"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-lamigo-orange rounded-full blur-3xl opacity-20"></div>
-          <div className="absolute top-10 right-80 w-96 h-96 bg-lamigo-orange rounded-full blur-3xl opacity-50"></div>
-          <div className="absolute bottom-0 left-40 w-96 h-96 bg-lamigo-orange rounded-full blur-3xl opacity-20"></div> */}
+
 
 
 
